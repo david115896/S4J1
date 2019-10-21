@@ -1,17 +1,16 @@
 <html>
-  <head>
-    <title>Créer un potin</title>
-  </head>
-  <body>
-    <h1>Crée un potin !</h1>
-    <p>Balance ton potin via le formulaire ci-dessous</p>
-    <form action='/comment/new/' method='POST'>
-      Saisi ici ton nom :  <input type='text' id=author name="comment_author" /><br/>
-      Balance ton commentaire : <input type='text' name="comment_content" /><br/>
-      <input type='hiddent' value="#{params[:index]}" name="gossip_index" /><br/>
-
-      <input type='submit'/>
-    </form>
-  </body>
+	<head>
+		<title>Créer un commentaire</title>
+	</head>
+	<body>
+		<h1>Crée un commentaire !</h1>
+		<p>Balance ton commentaie via le formulaire ci-dessous</p>
+		<form action='/comment/save/' method='POST'>
+			Saisi ici ton nom :  <input type='text' id=author name="comment_author" /><br/>
+			Balance ton commentaire : <input type='text' name="comment_content" /><br/>
+			<input type='hidden' value="<%=comment%>" name="gossip_index" /><br/>
+			<input type='submit'/>
+		</form>
+	</body>
 </html>
 ~        

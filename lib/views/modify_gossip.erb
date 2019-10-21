@@ -1,18 +1,15 @@
 <html>
-  <head>
-    <title>Créer un potin</title>
-  </head>
-  <body>
-    <h1>Crée un potin !</h1>
-    <p>Balance ton potin via le formulaire ci-dessous</p>
-    <form action='/gossip/modify/' method='POST'>
-
-	    Saisi ici ton nom :  <input type='text' value="<%=gossip.author%>" name="gossip_author" /><br/>
-	    Balance ton potin : <input type='text' value="<%=gossip.content%>" name="gossip_content"  /><br/>
-	     <input type='hidden' value="<%=gossip.index%>" name="gossip_index" /><br/>
-
-      <input type='submit'/>
-    </form>
-  </body>
+	<head>
+	    <title>Modifie un gossip</title>
+	</head>
+	<body>
+		<h1> Modifie un gossip !</h1>
+		<p> Modifie le gossip via le formulaire ci-dessous</p>
+		<form action='/gossip/modify/' method='POST'>
+		    	Remplace ici ton nom :  <input type='text' value="<%=gossip.author%>" name="gossip_author" /><br/>
+		    	Remplace ici le potin : <input type='text' value="<%=gossip.content%>" name="gossip_content"  /><br/>
+	     		<input type='hidden' value="<%=gossip.index%>" name="gossip_index" /><br/>
+			<input type='submit'/>
+		</form>
+	</body>
 </html>
-

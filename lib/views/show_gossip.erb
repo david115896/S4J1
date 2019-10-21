@@ -1,31 +1,25 @@
 <html>
-  <head>
-    <title>The Gossip Project</title>
-  </head>
-  <body>
-
-	  <h1>Voici le detail du gossip :<%= gossip.index %> </h1>  </br>
-	  
-	<%= "#{gossip.index} - " %>
-        <%= "#{gossip.author} - " %>
-        <%= "#{gossip.content} - " %>
-        <a href="/modify_gossip/<%=gossip.index%>">Modifier mon gossip</a> </br>
-
-	      <a href="/comment/new/<%=gossip.index%>">Afficher mon gossip</a> </br>
-
-        <p>
-        <% gossips.show_comments.each do |comment| %>
-        <p>
-        <%= "#{comment.content} - " %>
-        <%= "#{gossip.author} - " %>
-
-        </p>
-      <% end %>
-
-
-
-        </p>
-      
-  </body>
+	<head>
+		<title>The Gossip Project</title>
+	</head>
+	<body>
+		<h1>Voici le detail du gossip N* <%= gossip.index %> </h1>  </br>
+		<p>
+			<%= "#{gossip.index} - " %>
+		        <%= "#{gossip.author} - " %>
+		        <%= "#{gossip.content} - " %>
+		        <a href="/modify_gossip/<%=gossip.index%>">Modifier mon gossip</a> </br>
+			<a href="/comment/new/<%=gossip.index%>">Ajouter un commentaire</a> </br>
+		</p>	
+		<p>----------------COMMENTAIRES-------------------</p>
+	        <p>
+        		<% gossip.comments.each do |comment| %>
+		        <p>
+			        <%= "#{comment.author} - " %>
+			        <%= "#{comment.content}" %>
+		        </p>
+			<% end %>
+		</p>
+      		<a href="/">Revenir a la page d'acceuil</a> </br>
+	</body>
 </html>
-

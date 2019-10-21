@@ -1,17 +1,19 @@
-require 'bundler'
-Bundler.require
-$:.unshift File.expand_path('./../lib', __FILE__)
-
 
 class Comments
 
         attr_accessor :index_gossip, :content, :author
         def initialize(params)
-                        
-		@index_gossip=params["gossip_index"]
-                @content=params["comment_content"]
-		@author=params["comment_author"]
-        end
+                if params[:author] == nil        
+			@index_gossip=params["gossip_index"]
+                	@content=params["comment_content"]
+			@author=params["comment_author"]
+        	else
+                        @author = params[:author]
+                        @content = params[:content]
+                        @index = params[:index]
+                end
+
+	end
 	
 
 	def save
@@ -28,18 +30,19 @@ class Comments
 	end
 
 
-	def show_comments
+	def self.show_comments(index)
 		all_comments = Array.new
                 if File.exist?('db/comments.csv') == true
 
                 file = CSV.read('db/comments.csv', headers: true, header_converters: :symbol, converters: :all)
                 	
 			file.delete_if do |row|
-	               		row[:index] == @index_gossip
+				row[:index] != index.to_i
         		end
 			
 			file.each do |row|
-				all_comments << row
+				params = {index: row[:index], author: row[:authors], content: row[:contents]}
+				all_comments << Comments.new(params)
 			end
 		               
                 end

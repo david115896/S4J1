@@ -1,7 +1,3 @@
-require 'bundler'
-Bundler.require
-$:.unshift File.expand_path('./../lib', __FILE__)
-
 require 'gossip'
 
 
@@ -27,14 +23,14 @@ class ApplicationController < Sinatra::Base
 	redirect '/' 
   end
 
-  post '/comment/new' do
+  post '/comment/save/' do
 	Comments.new(params).save
 	erb :show_gossip, locals: {gossip: Gossip.find(params["gossip_index"])}
 
   end
 
-  get '/comment/new/' do
-	erb :new_comments
+  get '/comment/new/:index' do
+	erb :new_comments, locals: {comment: params[:index]}
   end
 
   get '/modify_gossip/:index' do
