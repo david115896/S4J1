@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base   #herite de la classe Sinatra
 
 	post '/gossips/new/' do		#realise la sauvegarde d'un nouveau gossip et redirecte vers index
 		Gossip.new(params).save
-		redirec '/'
+		redirect '/'
 	end
   
 	post '/gossip/modify/' do	#modifie un gossip dans la DB et redirecte vers index
