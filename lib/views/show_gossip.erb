@@ -3,13 +3,13 @@
 		<title>The Gossip Project</title>
 	</head>
 	<body>
-		<h1>Voici le detail du gossip N* <%= gossip.index %> </h1>  </br>
-		<p>
-			<%= "#{gossip.index} - " %>
-		        <%= "#{gossip.author} - " %>
-		        <%= "#{gossip.content} - " %>
-		        <a href="/modify_gossip/<%=gossip.index%>">Modifier mon gossip</a> </br>
-			<a href="/comment/new/<%=gossip.index%>">Ajouter un commentaire</a> </br>
+		<h1>Page Potin</h1>
+		<h3>Voici le detail du gossip N* <%= gossip.index %> </h3>  </br>
+		<p> Son auteur : <%= "#{gossip.author}" %></p>
+		<P> Le contenu du potin : <%= "#{gossip.content}" %> </p>
+		<a href="/modify_gossip/<%=gossip.index%>">Modifier mon gossip</a> </br>
+	
+		<a href="/comment/new/<%=gossip.index%>">Ajouter un commentaire</a> </br>
 		</p>	
 		<p>----------------COMMENTAIRES-------------------</p>
 	        <p>
